@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ron Obdin | Analytics Leadership</title>
+<meta name="description" content="Ron Obdin leads analytics for go-to-market teams: measurement strategy, the data layer underneath it, and the decisions it changes.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ron Obdin | Analytics Leadership">
+<meta property="og:description" content="I turn data into strategy the business runs on. Measurement strategy, the data layer underneath it, and the decisions it changes.">
+<meta property="og:url" content="https://robdin.github.io/">
+<meta property="og:image" content="https://robdin.github.io/image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ron Obdin | Analytics Leadership">
+<meta name="twitter:description" content="I turn data into strategy the business runs on.">
+<meta name="twitter:image" content="https://robdin.github.io/image.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070a10'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='34' fill='%232ee6c5'%3Er.%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070a10; --surface:rgba(255,255,255,.035); --line:rgba(255,255,255,.09);
+    --ink:#eef1f6; --ink2:#aab3c2; --muted:#6f7a8c;
+    --teal:#2ee6c5; --violet:#8b7cff; --amber:#ffc46b; --rose:#ff6f91;
+    --grad:linear-gradient(90deg,var(--teal),var(--violet));
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:'Inter',system-ui,-apple-system,"Segoe UI",sans-serif;
+    --display:'Space Grotesk',var(--sans);
+    --r:16px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:var(--teal);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;margin:0}
+  h2{font-size:clamp(26px,3.4vw,40px);line-height:1.1}
+  h3{font-size:19px}
+  .kicker{font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+  .lede{color:var(--ink2);max-width:62ch;font-size:17px;margin:14px 0 0}
+  section{padding:80px 0;position:relative}
+  @media(max-width:720px){section{padding:56px 0}}
+  section + section{border-top:1px solid var(--line)}
+  .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(7,10,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px;gap:16px}
+  nav .brand{font-family:var(--display);font-weight:700;letter-spacing:-.01em;white-space:nowrap}
+  nav .brand b{color:var(--teal)}
+  nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  nav ul::-webkit-scrollbar{display:none}
+  nav li a{color:var(--ink2);font-size:14px;white-space:nowrap}
+  nav li a:hover{color:var(--ink);text-decoration:none}
+  @media(max-width:720px){nav ul{gap:16px} nav li a{font-size:13px}}
+
+  /* hero */
+  .hero{position:relative;min-height:min(78vh,720px);display:flex;align-items:center;padding:60px 0;overflow:hidden;border-bottom:1px solid var(--line)}
+  @media(max-width:720px){.hero{padding:44px 0 36px;min-height:0}}
+  #hero3d{position:absolute;inset:0;z-index:0}
+  .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+  @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:26px}}
+  .hero h1{font-size:clamp(36px,6vw,70px);line-height:1.02;margin:10px 0 18px}
+  .hero p{color:var(--ink2);font-size:18px;max-width:56ch}
+  @media(max-width:720px){.hero p{font-size:16px}}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font:600 14px var(--sans);border:1px solid var(--line);color:var(--ink);background:var(--surface);transition:transform .15s,border-color .15s}
+  .btn:hover{transform:translateY(-1px);border-color:rgba(46,230,197,.5);text-decoration:none}
+  .btn.primary{background:var(--grad);color:#07101a;border:0}
+  .hero-card{background:rgba(12,17,26,.74);border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+  .hero-card .row{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+  .hero-card .row:last-child{border:0}
+  .hero-card .row span:first-child{color:var(--muted)}
+  .hero-card .row span:last-child{font-family:var(--mono);color:var(--ink);font-size:13px}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  @media(max-width:980px){.stats{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 18px;min-height:150px}
+  .stat .n{font:700 40px/1 var(--display);letter-spacing:-.03em}
+  .stat .n small{font-size:22px;color:var(--teal)}
+  .stat .l{color:var(--ink2);font-size:13px;margin-top:8px;line-height:1.4}
+  .stat.kit .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .stat.kit .chips span{font:500 11.5px var(--mono);padding:4px 8px;border-radius:6px;border:1px solid var(--line);color:var(--ink)}
+  @media(max-width:640px){.stat.kit{grid-column:span 2}}
+
+  /* approach */
+  .approach{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;margin-top:34px;align-items:stretch}
+  @media(max-width:900px){.approach{grid-template-columns:1fr}}
+  .loop{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-height:380px;display:flex;align-items:center;justify-content:center}
+  .pillars{display:grid;gap:12px}
+  .pillar{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+  .pillar .num{font:700 22px/1 var(--display);color:var(--teal)}
+  .pillar h3{font-size:16px;margin-bottom:4px}
+  .pillar p{margin:0;color:var(--ink2);font-size:14px}
+  .lead-note{margin-top:12px;background:linear-gradient(135deg,rgba(46,230,197,.08),rgba(139,124,255,.08));border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;color:var(--ink2);font-size:15px}
+  .lead-note b{color:var(--ink)}
+
+  /* work cards */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:34px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s,transform .2s;position:relative;overflow:hidden}
+  @media(max-width:720px){.card{padding:20px}}
+  .card:hover{border-color:rgba(139,124,255,.45);transform:translateY(-2px)}
+  .card .tag{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
+  .card p{color:var(--ink2);margin:0;font-size:15px}
+  .card .viz{width:100%;min-height:120px}
+  .card .foot{font:500 12px var(--mono);color:var(--muted);border-top:1px dashed var(--line);padding-top:12px}
+  .decision{font-size:13px;color:var(--ink2);border-left:2px solid var(--teal);padding-left:10px}
+  .decision b{color:var(--teal);font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:2px}
+  .callouts{display:flex;gap:10px;flex-wrap:wrap}
+  .callout{flex:1 1 120px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+  .callout b{font:700 22px/1 var(--display);display:block}
+  .callout span{font-size:12px;color:var(--ink2)}
+  svg text{font-family:var(--sans)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* systems */
+  .fw{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:26px;align-items:start}
+  @media(max-width:900px){.fw{grid-template-columns:1fr}}
+  .wheel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;min-height:380px}
+  .engine-panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+  .engine-panel h3{margin-bottom:6px}
+  .engine-panel .steps{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+  .engine-panel .steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:14px;color:var(--ink2)}
+  .engine-panel .steps li b{font-family:var(--mono);color:var(--teal);font-weight:500}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .tab{padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink2);font:500 13px var(--sans);cursor:pointer}
+  .tab.active{background:rgba(46,230,197,.12);border-color:rgba(46,230,197,.5);color:var(--ink)}
+
+  /* experience */
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-top:22px;overflow:hidden}
+  .panel .ph{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap}
+  .panel .ph h3{font-size:15px}
+  .panel .ph span{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .eg{display:block;margin-top:8px;color:var(--ink);font-size:13.5px}
+  .decision i{font-style:normal;color:var(--teal);font-weight:600}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:var(--ink2)}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .tip{position:absolute;pointer-events:none;background:#0f1522;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px;color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.4);max-width:260px;opacity:0;transition:opacity .15s;z-index:20}
+  .tip b{display:block;font-family:var(--display)}
+  .tip span{color:var(--ink2)}
+
+  /* values */
+  .list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  @media(max-width:900px){.list{grid-template-columns:1fr 1fr}}
+  @media(max-width:640px){.list{grid-template-columns:1fr}}
+  .list .card{padding:20px}
+
+  footer{padding:56px 0 72px;color:var(--ink2);font-size:14px;border-top:1px solid var(--line)}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">ron<b>.</b>obdin</div>
+    <ul>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#systems">Systems</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#values">Values</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div id="hero3d" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="kicker">Analytics leadership · Go-to-market · New York</div>
+      <h1>I turn data into <span class="grad">strategy the business runs on.</span></h1>
+      <p>Twelve years in analytics across SaaS, fintech and HR-tech. At Miro I own go-to-market analytics for a self-serve motion and an enterprise sales-led motion side by side, from the measurement leadership plans against to the production data layer underneath it. I still build the layer myself, and I set the standards others build to.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="Ron-Obdin-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/ronobdin/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn js-mail" href="#contact" data-u="ronobdin" data-d="gmail.com">Email</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Quick facts">
+      <div class="row"><span>Now</span><span>GTM Senior Analytics Manager, Miro</span></div>
+      <div class="row"><span>Scope</span><span>measurement strategy · attribution and program economics · forecasts and reviews · the GTM data layer · AI-ready data and tooling · new-motion instrumentation</span></div>
+      <div class="row"><span>Partners</span><span>Marketing, Sales, Finance and RevOps leadership</span></div>
+      <div class="row"><span>Leadership</span><span>built and led a BI team of four; at Miro, interviewer and onboarding lead for new analysts, mentor across teams, analytics owner for 40+ stakeholders</span></div>
+      <div class="row"><span>Motions</span><span>self-serve PLG · enterprise sales-led · partner and referral programs · outbound · AI SDR pilots</span></div>
+    </aside>
+  </div>
+</header>
+
+<section id="glance">
+  <div class="wrap">
+    <div class="kicker">At a glance</div>
+    <div class="stats">
+      <div class="stat reveal"><div class="n"><span data-count="12">0</span><small>+</small></div><div class="l">years in analytics, from analyst to analytics leader</div></div>
+      <div class="stat reveal"><div class="n" data-count="5">0</div><div class="l">companies across SaaS, fintech, HR-tech and retail</div></div>
+      <div class="stat reveal"><div class="n"><span data-count="40">0</span><small>+</small></div><div class="l">stakeholders across Marketing, Sales, Finance and RevOps working from one source of truth</div></div>
+      <div class="stat reveal"><div class="n" data-count="3">0</div><div class="l">analytics data layers built or rebuilt, at three companies: a BI re-architecture, a warehouse modernization, production GTM marts</div></div>
+      <div class="stat kit reveal"><div class="l" style="margin:0 0 8px;color:var(--muted)">Toolkit</div><div class="chips"><span>dbt</span><span>Snowflake</span><span>Looker</span><span>Python</span><span>SQL</span><span>Salesforce</span><span>Airbyte</span><span>AI tooling</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="kicker">Approach</div>
+    <h2>Strategy sets the question. One loop delivers the answer.</h2>
+    <p class="lede">Analytics only matters if it changes what the business does next. Every piece of work starts from the strategy, meaning the bets leadership is making and the decision in front of them, runs through the same four-step loop whether it is a one-week analysis or a year-long data layer, and ends in a review that records what changed and feeds the next plan.</p>
+    <div class="approach">
+      <div class="loop" id="vizLoop"></div>
+      <div>
+        <div class="pillars">
+          <div class="pillar reveal"><div class="num">01</div><div><h3>Strategy: start from what the business is trying to win</h3><p>Which bets leadership is making, which metrics they plan against, what a good quarter looks like. The measurement strategy is written against that, with definitions agreed with the people judged by them before anything ships. <span class="eg">At Miro: marketing plans against pipeline at opportunity grain and engaged ARR, with sourced versus influenced defined in writing and signed off by Marketing, Sales and Finance before the quarter starts.</span></p></div></div>
+          <div class="pillar reveal"><div class="num">02</div><div><h3>Delivery: define, discover, deliver, iterate</h3><p>The same spine for every piece of work. The comparison bar and the acceptance criteria are locked in Define, so the readout cannot be argued with later; the data layer is built in Deliver with declared grain, tests and one semantic layer that people, dashboards and AI agents read the same way. <span class="eg">At Miro: the same four steps produced a 24-month activation cohort in weeks and the production marts behind an AI account tool over a quarter; the AI SDR pilot's comparison bar was locked before a result existed.</span></p></div></div>
+          <div class="pillar reveal"><div class="num">03</div><div><h3>Iterate: change the decision, record it, feed the next plan</h3><p>Weekly reviews run off the facts, not decks. Readouts lead with the answer, the review notes what changed because of the number, and the open question goes back into the next planning cycle. <span class="eg">At Miro: the attribution readout became the requirements for the next planning cycle, and I became the analytics owner for the campaign family it isolated.</span></p></div></div>
+        </div>
+        <div class="lead-note reveal"><b>Leading the function.</b> Built and led a BI team of four serving Marketing and Sales; launched a company-wide analytics curriculum. At Miro: analytics owner for cross-functional programs with 40+ stakeholders, author of the standards the GTM data layer is built to, interviewer and onboarding lead for new analysts, and the person other teams' analysts bring their models to before they ship. The playbooks below exist so the next function starts from a map, not a blank page.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="kicker">Selected work</div>
+    <h2>Four pieces of work, and what each one changed.</h2>
+    <p class="lede">Every number here is relative or operational by design. Absolute revenue figures stay inside the companies they belong to; the shape of the problem and the fix travel fine.</p>
+
+    <div class="grid">
+
+      <div class="card reveal">
+        <div class="tag">Measurement strategy · attribution</div>
+        <h3>One attribution model the whole go-to-market team could agree on</h3>
+        <p>Rebuilt marketing pipeline measurement as a deduped, opportunity-grain multi-touch model with a look-back window and documented assumptions. Caught a multi-campaign fan-out inflating attributed pipeline before it was published, wrote the grain-and-dedupe standard that makes the next one catchable, and fixed mis-split partner credit, which showed the largest partner channel carrying about 31% of volume at below-average conversion.</p>
+        <div class="viz" id="vizAttribution"></div>
+        <div class="decision"><b>What it changed</b><i>Recommended:</i> one opportunity-grain model with a look-back window as the standard, and the two campaign families it isolated as the planning baseline. <i>Decided:</i> it became the measurement the next planning cycle's marketing requirements were written against, and I became the analytics owner for that campaign family. <i>Now:</i> pipeline credit has one grain and one dedupe rule, and partner-channel concentration is reviewed against a scorecard built for the rebalance decision.</div>
+        <div class="foot">hover a touch · ICP fit of credited pipeline +98% vs baseline</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Program economics · PLG</div>
+        <h3>A partner-credit program, measured honestly</h3>
+        <p>Moved the program off spreadsheets onto governed models with definitions signed off by its owners; reported ARR turned out to be understated by roughly 3x. Then built the 24-month activation ladder on ~4,000 self-serve orgs and an acquisition-cost view that treats credit as a cost of goods at a stated rate.</p>
+        <div class="callouts">
+          <div class="callout"><b class="grad">2.9x</b><span>correction to reported program ARR</span></div>
+          <div class="callout"><b style="color:var(--rose)">6.7x</b><span>economic CAC vs the flat-conversion view</span></div>
+          <div class="callout"><b style="color:var(--amber)">1.5–2x</b><span>LTV overstated under the flat view</span></div>
+        </div>
+        <div class="viz" id="vizCohort"></div>
+        <div class="decision"><b>What it changed</b><i>Recommended:</i> stop planning the program on a spreadsheet and a flat conversion rate; report ARR from governed models and judge the program on an activation ladder with credit as a cost of goods. <i>Decided:</i> the cutover became the program's reported number (a 2.9x correction), and measurement ownership moved to me for the next cycle. <i>Now:</i> the LTV assumption carries a stated cost rate, team adoption is the rung the program's economics turn on, and its owners work from a metrics guide I wrote.</div>
+        <div class="foot">share of cohort reaching each rung · team-adopted orgs ≈ 2x ARPU</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">AI-native GTM · data for agents</div>
+        <h3>A GTM engine's data layer, built for an LLM to read</h3>
+        <p>Production models behind an AI account-intelligence tool for account executives: defined grain, tests, review, incremental with a lookback. The brief was a 50% token cut; text cleanup alone delivered under 10%, so I reframed the problem at the data layer, where 722K raw activity rows become 33K thread-evidence rows before the model sees them. Day to day the same pattern runs my own work: Cursor and Claude in the workflow, a knowledge base over my own documentation, reusable agent skills for repeat analyses.</p>
+        <div class="viz" id="vizRows"></div>
+        <div class="decision"><b>What it changed</b><i>Recommended:</i> solve token cost in the data layer, not the prompt, after text cleanup delivered under 10% of a 50% target. <i>Decided:</i> the account-intelligence tool shipped on a thread-evidence table 95% smaller than the raw activity feed. <i>Now:</i> it runs inside reps' daily tooling, and reduce-before-you-prompt is the pattern the next AI build starts from.</div>
+        <div class="foot">log scale · one row per thread · 95% reduction</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Measurement before spend</div>
+        <h3>An outbound motion and an AI SDR pilot, instrumented on day one</h3>
+        <p>Led the digital-native outbound build end to end: ICP definition, enrichment, a scored account model, ingestion, and CRM-join QC for a 100+ account pilot before any spend. For an AI SDR pilot, the comparison bar was locked and cohorts fenced before results existed, so the readout could not be argued with later.</p>
+        <div class="viz" id="vizOutbound"></div>
+        <div class="decision"><b>What it changed</b><i>Recommended:</i> lock the comparison bar and fence the cohorts before a dollar is spent. <i>Decided:</i> both pilots launched with day-one scorecards, and go/no-go is read against the bar rather than negotiated afterward. <i>Now:</i> the outbound monitoring page sits in the same dashboard leadership uses for at-risk accounts, so the pilot is reviewed weekly next to the core business.</div>
+        <div class="foot">define → discover → deliver → read out</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="systems">
+  <div class="wrap">
+    <div class="kicker">Playbooks</div>
+    <h2>How I'd build the function on your team.</h2>
+    <p class="lede">An analytics or revenue-operations function is a set of engines. For each one I keep what it is, the order to build it in, and what "done" looks like, so the first two quarters in a new seat are scoped on day one. Click an engine.</p>
+    <div class="tabs" id="fwTabs"></div>
+    <div class="fw">
+      <div class="wheel" id="wheel"></div>
+      <div class="engine-panel" id="enginePanel"></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="kicker">Experience</div>
+    <h2>Five companies, four industries, one stack that travels.</h2>
+    <p class="lede">Hover a band for the role. Hover a node to light up its layer; drag to rearrange.</p>
+    <div class="panel">
+      <div class="ph"><h3>Where I've worked</h3><span>2014 → today</span></div>
+      <div id="vizTimeline"></div>
+      <div class="legend" id="tlLegend"></div>
+      <div class="legend" style="margin-top:14px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted)"><span><b style="color:var(--ink2);font-weight:500">Education</b> · University of Illinois at Chicago, BSBA in Finance &amp; Economics</span></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h3>What I work with, and how it connects</h3><span>systems I build in or read from</span></div>
+      <div id="vizStack" style="min-height:400px"></div>
+      <div class="legend" id="stackLegend"></div>
+    </div>
+  </div>
+</section>
+
+<section id="values">
+  <div class="wrap">
+    <div class="kicker">Values</div>
+    <h2>The way I work, written down.</h2>
+    <div class="list">
+      <div class="card reveal"><div class="tag">Communication</div><h3>Lead with the answer, put it in writing</h3><p>Executive readouts open with the decision and the number behind it. Bad news goes out early, written down, with the next step attached. If a stakeholder is surprised in the review, the communication already failed.</p></div>
+      <div class="card reveal"><div class="tag">Collaboration</div><h3>One team across Marketing, Sales, Finance and RevOps</h3><p>Definitions are agreed with the people who will be measured by them before anything ships. Credit is shared, the partner's goal is the goal, and nobody relitigates the number in the review.</p></div>
+      <div class="card reveal"><div class="tag">Ownership</div><h3>If the number is wrong, it's mine to fix</h3><p>I own the work from the question to the decision, whoever built the model. "Corrected" is not "generated," and a result that is bad news ships with the same confidence as good news.</p></div>
+      <div class="card reveal"><div class="tag">Empathy</div><h3>Start from what someone has to decide</h3><p>Every piece of work begins with the decision it serves and the person making it. Tools get built for the rep who has to use them, not for the demo. If a number won't change what happens next, it doesn't get built.</p></div>
+      <div class="card reveal"><div class="tag">Impact over activity</div><h3>Fewer metrics, fewer rows, fewer tools</h3><p>Most trust problems are complexity problems. I would rather retire three dashboards than add a fourth, and the review notes what changed because of the number, not how many reports shipped.</p></div>
+      <div class="card reveal"><div class="tag">Learn, grow, teach</div><h3>Leverage is other people doing it well</h3><p>Curricula, office hours, mentoring analysts without a reporting line, standards written down so the function works when I'm not in the room. I pick up new tools quickly and hand them on; the team's ceiling, not my output, is the measure.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <div style="font-family:var(--display);font-weight:700;color:var(--ink)">Ron Obdin</div>
+      <div>New York · <a class="js-mail" href="#contact" data-u="ronobdin" data-d="gmail.com" data-show="1">email</a> · <a href="https://www.linkedin.com/in/ronobdin/" target="_blank" rel="noopener">LinkedIn</a> · <a href="Ron-Obdin-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></div>
+    </div>
+    <div style="max-width:46ch">Figures on this page are relative or operational and drawn from my own documented work. Company-confidential absolutes are intentionally omitted.</div>
+  </div>
+</footer>
+
+<div class="tip" id="tip"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+(function(){
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let small = window.innerWidth < 720;
+  const TEAL='#2ee6c5', VIOLET='#8b7cff', AMBER='#ffc46b', ROSE='#ff6f91', INK2='#aab3c2', MUTED='#6f7a8c', LINE='rgba(255,255,255,.12)';
+  const tip = document.getElementById('tip');
+  function showTip(ev, html){ tip.innerHTML = html; tip.style.opacity = 1; moveTip(ev); }
+  function moveTip(ev){ const x = ev.pageX + 14, y = ev.pageY + 14; tip.style.left = Math.min(x, window.scrollX + window.innerWidth - 280) + 'px'; tip.style.top = y + 'px'; }
+  function hideTip(){ tip.style.opacity = 0; }
+  document.addEventListener('touchstart', hideTip, {passive:true});
+
+  /* ---------- reveal + counters ---------- */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      e.target.querySelectorAll('[data-count]').forEach(runCounter);
+      if (e.target.dataset.draw) { window[e.target.dataset.draw](); }
+      io.unobserve(e.target);
+    });
+  }, {threshold: .2});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  function runCounter(el){
+    if (el.dataset.done) return; el.dataset.done = 1;
+    const to = parseFloat(el.dataset.count), dec = +(el.dataset.dec||0), t0 = performance.now(), dur = reduce ? 0 : 1400;
+    function step(t){ const p = Math.min(1,(t-t0)/dur), e = 1-Math.pow(1-p,3); el.textContent = Number((to*e).toFixed(dec)).toLocaleString('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec}); if (p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+
+  /* ---------- hero: three.js particle network ---------- */
+  (function hero(){
+    const host = document.getElementById('hero3d');
+    if (!window.THREE) return;
+    let renderer; try { renderer = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:'low-power'}); } catch(e){ return; }
+    const w = host.clientWidth, h = host.clientHeight;
+    renderer.setPixelRatio(Math.min(small?1.5:2, window.devicePixelRatio||1)); renderer.setSize(w,h); host.appendChild(renderer.domElement);
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(55, w/h, .1, 100); cam.position.set(0,0,16);
+    const N = small ? 60 : 110, R = 9, pos = new Float32Array(N*3), vel = [], cols = new Float32Array(N*3);
+    const c1 = new THREE.Color(TEAL), c2 = new THREE.Color(VIOLET), c3 = new THREE.Color(AMBER);
+    for (let i=0;i<N;i++){
+      const th = Math.random()*Math.PI*2, ph = Math.acos(2*Math.random()-1), r = R*Math.cbrt(Math.random());
+      pos[i*3]=r*Math.sin(ph)*Math.cos(th)*1.6; pos[i*3+1]=r*Math.sin(ph)*Math.sin(th)*.8; pos[i*3+2]=r*Math.cos(ph)*.6;
+      vel.push(new THREE.Vector3((Math.random()-.5)*.005,(Math.random()-.5)*.005,(Math.random()-.5)*.005));
+      const c = Math.random()<.12 ? c3 : (Math.random()<.5 ? c1 : c2); cols[i*3]=c.r; cols[i*3+1]=c.g; cols[i*3+2]=c.b;
+    }
+    const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos,3)); pg.setAttribute('color', new THREE.BufferAttribute(cols,3));
+    scene.add(new THREE.Points(pg, new THREE.PointsMaterial({size:.12, vertexColors:true, transparent:true, opacity:.7})));
+    const maxL = N*8, lpos = new Float32Array(maxL*6), lcol = new Float32Array(maxL*6);
+    const lg = new THREE.BufferGeometry(); lg.setAttribute('position', new THREE.BufferAttribute(lpos,3)); lg.setAttribute('color', new THREE.BufferAttribute(lcol,3));
+    scene.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({vertexColors:true, transparent:true, opacity:.22})));
+    let mx=0,my=0; window.addEventListener('pointermove', e => { mx = (e.clientX/window.innerWidth-.5); my = (e.clientY/window.innerHeight-.5); }, {passive:true});
+    const D = 2.6; let visible = true;
+    new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(host);
+    function frame(){
+      requestAnimationFrame(frame); if (!visible) return;
+      const p = pg.attributes.position.array; let k=0;
+      for (let i=0;i<N;i++){
+        if (!reduce){ p[i*3]+=vel[i].x; p[i*3+1]+=vel[i].y; p[i*3+2]+=vel[i].z;
+          if (Math.abs(p[i*3])>R*1.6) vel[i].x*=-1; if (Math.abs(p[i*3+1])>R*.8) vel[i].y*=-1; if (Math.abs(p[i*3+2])>R*.6) vel[i].z*=-1; }
+      }
+      for (let i=0;i<N && k<maxL;i++) for (let j=i+1;j<N && k<maxL;j++){
+        const dx=p[i*3]-p[j*3], dy=p[i*3+1]-p[j*3+1], dz=p[i*3+2]-p[j*3+2], d=Math.sqrt(dx*dx+dy*dy+dz*dz);
+        if (d<D){ const a = 1-d/D;
+          lpos.set([p[i*3],p[i*3+1],p[i*3+2],p[j*3],p[j*3+1],p[j*3+2]], k*6);
+          lcol.set([cols[i*3]*a,cols[i*3+1]*a,cols[i*3+2]*a, cols[j*3]*a,cols[j*3+1]*a,cols[j*3+2]*a], k*6); k++; }
+      }
+      lg.setDrawRange(0,k*2); lg.attributes.position.needsUpdate = true; lg.attributes.color.needsUpdate = true; pg.attributes.position.needsUpdate = true;
+      scene.rotation.y += (mx*.3 - scene.rotation.y)*.03; scene.rotation.x += (my*.18 - scene.rotation.x)*.03;
+      if (!reduce) scene.rotation.z += .00015;
+      renderer.render(scene, cam);
+    }
+    frame();
+    window.addEventListener('resize', () => { const w=host.clientWidth,h=host.clientHeight; cam.aspect=w/h; cam.updateProjectionMatrix(); renderer.setSize(w,h); });
+  })();
+
+  /* ---------- helpers ---------- */
+  function svgIn(id, h){ const el = document.getElementById(id); el.innerHTML=''; const w = el.clientWidth || 480; const s = d3.select(el).append('svg').attr('viewBox',`0 0 ${w} ${h}`).attr('width','100%').attr('height',h); return {s,w,h}; }
+  const lab = (w, px) => Math.min(px, Math.round(w*.42));
+  const T = reduce ? 0 : 900;
+
+  /* attribution look-back */
+  window.drawAttribution = function(){
+    const {s,w,h} = svgIn('vizAttribution', 190);
+    const x = d3.scaleLinear().domain([-100, 20]).range([24, w-24]);
+    const y = 84;
+    s.append('rect').attr('x',x(-90)).attr('y',y-40).attr('width',x(0)-x(-90)).attr('height',80).attr('rx',10).attr('fill','rgba(46,230,197,.08)').attr('stroke','rgba(46,230,197,.35)').attr('stroke-dasharray','4 4');
+    s.append('text').attr('x',x(-45)).attr('y',y-48).attr('text-anchor','middle').attr('fill',TEAL).attr('font-size',11).attr('font-family','JetBrains Mono').text('look-back window');
+    s.append('line').attr('x1',x(-100)).attr('x2',x(20)).attr('y1',y).attr('y2',y).attr('stroke',LINE);
+    s.append('line').attr('x1',x(0)).attr('x2',x(0)).attr('y1',y-46).attr('y2',y+46).attr('stroke',AMBER);
+    s.append('text').attr('x',x(0)-4).attr('y',y+60).attr('text-anchor','end').attr('fill',AMBER).attr('font-size',11).text('opportunity created (grain = 1 row)');
+    const touches = [{d:-78,n:'webinar',c:true},{d:-61,n:'paid search',c:true},{d:-37,n:'content download',c:true},{d:-14,n:'event',c:true},{d:-96,n:'newsletter',c:false},{d:11,n:'post-creation nurture',c:false}];
+    const g = s.selectAll('g.t').data(touches).enter().append('g').attr('transform',d=>`translate(${x(d.d)},${y})`).style('cursor','pointer');
+    g.append('circle').attr('r',0).attr('fill',d=>d.c?TEAL:MUTED).transition().delay((d,i)=>i*120).duration(T).attr('r',8);
+    g.append('circle').attr('r',16).attr('fill','transparent')
+      .on('mousemove',(ev,d)=>showTip(ev,`<b>${d.n}</b><span>day ${d.d} · ${d.c?'credited once, deduped at opportunity grain':'outside the window — not credited'}</span>`)).on('mouseleave',hideTip);
+    s.append('text').attr('x',24).attr('y',h-6).attr('fill',MUTED).attr('font-size',small?10:11).text(small?'grey = touches the naive model double-counted':'grey = touches the naive model double-counted or credited out of window');
+  };
+
+  /* cohort ladder */
+  window.drawCohort = function(){
+    const {s,w,h} = svgIn('vizCohort', 150);
+    const L = lab(w,140);
+    const data=[{k:'Activated',v:91},{k:'Sustained usage',v:73},{k:'Team adoption',v:44}];
+    const x = d3.scaleLinear().domain([0,100]).range([0,w-L-60]);
+    const g = s.selectAll('g').data(data).enter().append('g').attr('transform',(d,i)=>`translate(${L},${12+i*46})`);
+    g.append('text').attr('x',-10).attr('y',17).attr('text-anchor','end').attr('fill',INK2).attr('font-size',12).text(d=>d.k);
+    g.append('rect').attr('height',26).attr('rx',6).attr('width',x(100)).attr('fill','rgba(255,255,255,.05)');
+    g.append('rect').attr('height',26).attr('rx',6).attr('fill',(d,i)=>[TEAL,VIOLET,AMBER][i]).attr('width',0).transition().delay((d,i)=>i*150).duration(T).attr('width',d=>x(d.v));
+    g.append('text').attr('y',18).attr('fill','#fff').attr('font-size',13).attr('font-family','JetBrains Mono').attr('x',d=>x(d.v)+8).text(d=>d.v+'%').attr('opacity',0).transition().delay((d,i)=>i*150+T).attr('opacity',1);
+  };
+
+  /* rows funnel */
+  window.drawRows = function(){
+    const {s,w,h} = svgIn('vizRows', 140);
+    const L = lab(w,230);
+    const data=[{k:small?'Raw activity rows':'Raw sales-activity rows',v:722000,c:MUTED},{k:small?'Rows the LLM reads':'Rows the LLM reads',v:33000,c:TEAL}];
+    const x = d3.scaleLog().domain([1000,1000000]).range([0,w-L-90]);
+    const g = s.selectAll('g').data(data).enter().append('g').attr('transform',(d,i)=>`translate(${L},${20+i*60})`);
+    g.append('text').attr('x',-10).attr('y',16).attr('text-anchor','end').attr('fill',INK2).attr('font-size',12).text(d=>d.k);
+    g.append('rect').attr('height',26).attr('rx',6).attr('fill',d=>d.c).attr('width',0).transition().duration(T).attr('width',d=>x(d.v));
+    g.append('text').attr('y',18).attr('fill','#fff').attr('font-size',13).attr('font-family','JetBrains Mono').attr('x',d=>x(d.v)+8).text(d=>d3.format(',')(d.v)).attr('opacity',0).transition().delay(T).attr('opacity',1);
+  };
+
+  /* outbound steps */
+  window.drawOutbound = function(){
+    const {s,w,h} = svgIn('vizOutbound', 130);
+    const steps=[{k:'Define',l:'ICP · bar locked',d:'ICP and hypothesis written; the comparison bar locked before anything ships'},{k:'Discover',l:'enrich · score · QC',d:'enrichment, a scored account model, CRM-join QC on the pilot list'},{k:'Deliver',l:'ingest · monitor',d:'ingestion, field-facing monitoring, fenced cohorts'},{k:'Read out',l:'vs the bar',d:'measured against the bar set on day one, so the readout cannot be argued with later'}];
+    const x = d3.scaleBand().domain(steps.map(d=>d.k)).range([10,w-10]).padding(.14);
+    const g = s.selectAll('g').data(steps).enter().append('g').attr('transform',d=>`translate(${x(d.k)},30)`).style('cursor','pointer')
+      .on('mousemove',(ev,d)=>showTip(ev,`<b>${d.k}</b><span>${d.d}</span>`)).on('mouseleave',hideTip);
+    g.append('rect').attr('width',x.bandwidth()).attr('height',56).attr('rx',10).attr('fill','rgba(255,255,255,.05)').attr('stroke',LINE).attr('opacity',0).transition().delay((d,i)=>i*160).duration(T/2).attr('opacity',1);
+    g.append('text').attr('x',small?7:10).attr('y',small?34:24).attr('fill',TEAL).attr('font-size',small?11:13).attr('font-family','Space Grotesk').attr('font-weight',600).text(d=>d.k);
+    if(!small) g.append('text').attr('x',10).attr('y',44).attr('fill',INK2).attr('font-size',11).text(d=>d.l);
+    s.selectAll('line.a').data(steps.slice(0,-1)).enter().append('line').attr('x1',d=>x(d.k)+x.bandwidth()).attr('x2',(d,i)=>x(steps[i+1].k)).attr('y1',58).attr('y2',58).attr('stroke',VIOLET).attr('stroke-width',2).attr('stroke-dasharray','3 4');
+    s.append('text').attr('x',10).attr('y',h-10).attr('fill',MUTED).attr('font-size',small?10:11).text(small?'Pilot measured before spend · tap a step for detail':'100+ account pilot measured before spend · AI SDR pilot fenced before results existed');
+  };
+
+  const draws = {vizAttribution:'drawAttribution',vizCohort:'drawCohort',vizRows:'drawRows',vizOutbound:'drawOutbound'};
+  Object.entries(draws).forEach(([id,fn])=>{ document.getElementById(id).closest('.card').dataset.draw = fn; });
+
+  /* strategy loop: Define → Discover → Deliver → Iterate, with strategy at the centre */
+  window.drawLoop = function(){
+    const el = document.getElementById('vizLoop'); if (el.dataset.done) return; el.dataset.done=1;
+    const w = el.clientWidth||520, h=small?360:400, cx=w/2, cy=h/2+(small?6:0), R=Math.min(w,h)/2-(small?82:74);
+    const s = d3.select(el).append('svg').attr('viewBox',`0 0 ${w} ${h}`).attr('width','100%').attr('height',h);
+    const steps=[
+      {k:'Define',d:'The decision this serves, the metric and its grain, the comparison bar and the acceptance criteria, all written down before anything is built.',c:AMBER},
+      {k:'Discover',d:'What the data can and cannot say: sources, quality, assumptions, and the line between documented and estimated.',c:TEAL},
+      {k:'Deliver',d:'The model, the semantic layer and the review it feeds, built as production code with tests and review. The readout leads with the answer.',c:VIOLET},
+      {k:'Iterate',d:'Acceptance criteria checked, decision recorded, what changed noted. The open question goes back into strategy for the next cycle.',c:ROSE}
+    ];
+    const n=steps.length, ang=i=>-Math.PI/2+i*2*Math.PI/n;
+    const ring = s.append('circle').attr('cx',cx).attr('cy',cy).attr('r',R).attr('fill','none').attr('stroke',LINE).attr('stroke-width',1.5).attr('stroke-dasharray','6 8');
+    const arcGen = d3.arc().innerRadius(R).outerRadius(R);
+    steps.forEach((st,i)=>{ const a0=ang(i)+.38, a1=ang(i+1)-.38; s.append('path').attr('d',arcGen({startAngle:a0+Math.PI/2,endAngle:a1+Math.PI/2})).attr('transform',`translate(${cx},${cy})`).attr('fill','none').attr('stroke',st.c).attr('stroke-width',2).attr('opacity',.7);
+      s.append('circle').attr('cx',cx+R*Math.cos(a1)).attr('cy',cy+R*Math.sin(a1)).attr('r',3.5).attr('fill',st.c); });
+    /* centre: strategy in, decision out */
+    const cr = small?42:58;
+    s.append('circle').attr('cx',cx).attr('cy',cy).attr('r',cr).attr('fill','rgba(46,230,197,.06)').attr('stroke',TEAL).attr('stroke-width',1.2).attr('stroke-dasharray','3 4');
+    s.append('text').attr('x',cx).attr('y',cy-3).attr('text-anchor','middle').attr('fill','#eef1f6').attr('font-size',small?12.5:15).attr('font-family','Space Grotesk').attr('font-weight',700).text('Strategy');
+    ['question in','decision out'].forEach((t,j)=> s.append('text').attr('x',cx).attr('y',cy+(small?9:11)+j*(small?10:12)).attr('text-anchor','middle').attr('fill',MUTED).attr('font-size',small?8.5:9.5).attr('font-family','JetBrains Mono').text(t));
+    /* spokes: strategy sets the Define step; Iterate feeds back */
+    const spoke=(i,col)=>{ const a=ang(i); s.append('line').attr('x1',cx+cr*Math.cos(a)).attr('y1',cy+cr*Math.sin(a)).attr('x2',cx+(R-(small?24:28))*Math.cos(a)).attr('y2',cy+(R-(small?24:28))*Math.sin(a)).attr('stroke',col).attr('stroke-width',1.2).attr('stroke-dasharray','2 4').attr('opacity',.8); };
+    spoke(0,AMBER); spoke(3,ROSE);
+    const g = s.selectAll('g.n').data(steps).enter().append('g').attr('transform',(d,i)=>`translate(${cx+R*Math.cos(ang(i))},${cy+R*Math.sin(ang(i))})`).style('cursor','pointer')
+      .on('mousemove',(ev,d)=>showTip(ev,`<b>${d.k}</b><span>${d.d}</span>`)).on('mouseleave',hideTip);
+    const nr = small?20:25;
+    g.append('circle').attr('r',0).attr('fill','#0f1522').attr('stroke',d=>d.c).attr('stroke-width',2).transition().delay((d,i)=>i*140).duration(T/2).attr('r',nr);
+    g.append('text').attr('text-anchor','middle').attr('y',5).attr('fill',d=>d.c).attr('font-size',14).attr('font-family','Space Grotesk').attr('font-weight',700).text((d,i)=>i+1);
+    g.each(function(d,i){ const a=ang(i), c=Math.cos(a), sn=Math.sin(a);
+      const anchor = c>.3?'start':(c<-.3?'end':'middle');
+      const x = c>.3? nr+8 : (c<-.3? -(nr+8) : 0);
+      const y = sn<-.3? -(nr+12) : (sn>.3? nr+20 : 5);
+      d3.select(this).append('text').attr('x',x).attr('y',y).attr('text-anchor',anchor).attr('fill',INK2).attr('font-size',small?11.5:13).attr('font-weight',600).text(d.k); });
+  };
+  const approachEl = document.getElementById('vizLoop').closest('.approach'); approachEl.dataset.draw='drawLoop'; io.observe(approachEl);
+
+  /* ---------- systems wheel ---------- */
+  const packs = {
+    'Revenue operations': [
+      {n:'GTM Process Architecture', jd:'funnel, lifecycle, handoffs', build:['Define stages and the field that dates each one','Write the handoff contract between Marketing, Sales and CS','Instrument the funnel at lead, opportunity and account grain','Acceptance: every stage has an owner, a timestamp and a test']},
+      {n:'Revenue Tech Stack', jd:'CRM, MAP, engagement, forecast tools', build:['Inventory systems and the fields analytics reads','Decide the system of record per entity','Sync raw to the warehouse before anyone models it','Acceptance: one lineage graph, no spreadsheet of record']},
+      {n:'Execution Operations', jd:'routing, SLAs, lead-to-opp hygiene', build:['Routing rules per motion with speed-to-lead SLAs','Hygiene contract: creation source, owner, stage timestamps','Weekly interlock on the same numbers analytics publishes','Acceptance: routing accuracy and time-in-queue measured']},
+      {n:'Planning & Alignment', jd:'capacity, territories, quota calendar', build:['Universe table at the assignable grain, scored and tiered','Plan at segment × month; assumptions versioned with sources','Roster and assignments with effective dates','Coverage fact: required minus available, by segment and month']},
+      {n:'Operating Cadence', jd:'pipe review, forecast, demand council', build:['One forecast fact at manager × rep × period × week','Quota deduped to one value per person per period before rollup','Weekly review runs off the fact, not a deck','Acceptance: commit, quota and pipeline reconcile to source weekly']},
+      {n:'Optimization & Enablement', jd:'experiments, playbooks, enablement', build:['Experiment registry with a locked comparison bar','Playbooks tied to measured stage conversion','Enablement content versioned with the metric definitions','Acceptance: every pilot has a readout date before launch']}
+    ],
+    'Sales ops & analytics': [
+      {n:'Weekly Performance', jd:'dashboards, funnel, velocity, conversion', build:['Stage-to-stage conversion from closed deals, touched-stage method','Time in stage with median and P75; cycle time to close','Scorecard template with a stated reliable cohort range','Acceptance: numbers tie to CRM reports on the same date']},
+      {n:'Quota & Incentives', jd:'quota, commissions, variable pay', build:['Populations first, then the quota system','Credit event defined before rates','One-page incentive spec and payout calendar','Risk controls before the first payout']},
+      {n:'TAM to Target List', jd:'TAM, scoring, target lists', build:['Define the universe and its grain','Discover: enrich, score, tier','Deliver: lists with ownership and effective dates','Acceptance: list hygiene measured every cycle']},
+      {n:'CRM Governance', jd:'stages, enrichment, automation, admin', build:['Stage gates with required fields','Enrichment sources ranked, with a precedence rule','Duplicate and orphan audits on a schedule','Acceptance: field completeness and duplicate rate on the scorecard']},
+      {n:'Executive Packet', jd:'WBR, QBR, resource allocation', build:['Narrative built on the Weekly Performance spine','Key summary first, exhibits second','Decisions logged with the number that drove them','Acceptance: the packet regenerates from the models, not by hand']}
+    ]
+  };
+  const tabsEl = document.getElementById('fwTabs'), wheelEl = document.getElementById('wheel'), panel = document.getElementById('enginePanel');
+  let activePack = Object.keys(packs)[0];
+  Object.keys(packs).forEach((k,i)=>{ const b=document.createElement('button'); b.className='tab'+(i===0?' active':''); b.textContent=k; b.onclick=()=>{ activePack=k; [...tabsEl.children].forEach(c=>c.classList.remove('active')); b.classList.add('active'); drawWheel(); }; tabsEl.appendChild(b); });
+  function drawWheel(){
+    wheelEl.innerHTML=''; const w = Math.max(wheelEl.clientWidth||0, 300) || 520, h=small?380:420, cx=w/2, cy=h/2, R=Math.min(w,h)/2-(small?62:70);
+    const s = d3.select(wheelEl).append('svg').attr('viewBox',`0 0 ${w} ${h}`).attr('width','100%').attr('height',h);
+    const engines = packs[activePack], n = engines.length;
+    s.append('circle').attr('cx',cx).attr('cy',cy).attr('r',R).attr('fill','none').attr('stroke',LINE).attr('stroke-dasharray','3 5');
+    s.append('text').attr('x',cx).attr('y',cy-6).attr('text-anchor','middle').attr('fill',MUTED).attr('font-size',11).attr('font-family','JetBrains Mono').text('map any scope');
+    s.append('text').attr('x',cx).attr('y',cy+12).attr('text-anchor','middle').attr('fill',MUTED).attr('font-size',11).attr('font-family','JetBrains Mono').text('onto engines');
+    const g = s.selectAll('g.e').data(engines).enter().append('g').attr('class','e').style('cursor','pointer')
+      .attr('transform',(d,i)=>{ const a=-Math.PI/2+i*2*Math.PI/n; return `translate(${cx+R*Math.cos(a)},${cy+R*Math.sin(a)})`; })
+      .on('click',(ev,d)=>select(d)).on('mouseenter',function(){ d3.select(this).select('circle').attr('stroke',TEAL); }).on('mouseleave',function(){ d3.select(this).select('circle').attr('stroke',LINE); });
+    g.append('line').attr('x1',0).attr('y1',0).attr('x2',(d,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return -R*Math.cos(a)*.78;}).attr('y2',(d,i)=>{const a=-Math.PI/2+i*2*Math.PI/n;return -R*Math.sin(a)*.78;}).attr('stroke',LINE);
+    g.append('circle').attr('r',0).attr('fill','#0f1522').attr('stroke',LINE).transition().delay((d,i)=>i*80).duration(T/2).attr('r',small?24:30);
+    g.append('text').attr('text-anchor','middle').attr('y',5).attr('fill',TEAL).attr('font-size',14).attr('font-family','Space Grotesk').attr('font-weight',700).text((d,i)=>i+1);
+    g.append('text').attr('text-anchor','middle').attr('y',(d,i)=>{const a=-Math.PI/2+i*2*Math.PI/n; return Math.sin(a)>.3?(small?42:52):(Math.sin(a)<-.3?(small?-32:-40):5);}).attr('x',(d,i)=>{const a=-Math.PI/2+i*2*Math.PI/n; return Math.abs(Math.sin(a))>.3?0:(Math.cos(a)>0?(small?32:40):(small?-32:-40));}).attr('text-anchor',(d,i)=>{const a=-Math.PI/2+i*2*Math.PI/n; return Math.abs(Math.sin(a))>.3?'middle':(Math.cos(a)>0?'start':'end');}).attr('fill',INK2).attr('font-size',small?10.5:12).text(d=>d.n);
+    select(engines[0]);
+  }
+  function select(d){
+    panel.innerHTML = `<div class="tag" style="font:500 11px 'JetBrains Mono';letter-spacing:.14em;text-transform:uppercase;color:${VIOLET}">Engine · ${activePack}</div><h3>${d.n}</h3><div style="color:${MUTED};font-size:13px">Typical scope language: ${d.jd}</div><ul class="steps">${d.build.map((b,i)=>`<li><b>${String(i+1).padStart(2,'0')}</b><span>${b}</span></li>`).join('')}</ul><div style="margin-top:14px;font-size:12px;color:${MUTED}">Each engine follows the same shape: define, ordered build, acceptance. Full packs available on request.</div>`;
+  }
+  drawWheel();
+
+  /* ---------- timeline ---------- */
+  function drawTimeline(){
+    const el = document.getElementById('vizTimeline'); el.innerHTML=''; const w = el.clientWidth||1000, h=small?230:250;
+    const s = d3.select(el).append('svg').attr('viewBox',`0 0 ${w} ${h}`).attr('width','100%').attr('height',h);
+    const rows=[
+      {co:'Avant',short:'Avant',role:'Analyst, QA & Customer Experience',a:2014.4,b:2017.4,c:MUTED,n:'Fintech. Automated legacy reporting; CX programs lifting NPS 25% at 95% CSAT.'},
+      {co:'Walgreens Boots Alliance',short:'Walgreens',role:'Business Analyst',a:2017.4,b:2018.3,c:MUTED,n:'Retail. KPI analysis on a multi-billion-dollar inventory; data governance for the Rite Aid acquisition.'},
+      {co:'Hireology',short:'Hireology',role:'Technical Program Manager → Product Analytics Manager',a:2018.3,b:2021.6,c:AMBER,n:'HR-tech. Re-architected the BI instance; support cases down 50%, business-review time down 75%.'},
+      {co:'Beyond Finance',short:'Beyond',role:'Manager, Business Intelligence',a:2021.6,b:2022.3,c:VIOLET,n:'Fintech. Led a BI team of four; modernized the data model; 10+ sources integrated; company-wide curriculum.'},
+      {co:'Miro',short:'Miro',role:'Marketing Analytics Manager → GTM Senior Analytics Manager',a:2022.3,b:2026.8,c:TEAL,n:'SaaS. Measurement strategy, attribution, PLG cohort economics, the engaged-ARR layer, AI-ready data.'}
+    ];
+    const x = d3.scaleLinear().domain([2014,2027]).range([16,w-16]);
+    const y = d3.scaleBand().domain(rows.map(r=>r.co)).range([16,h-36]).padding(.3);
+    const ticks = d3.range(2014,2027,small?4:2);
+    s.selectAll('text.yr').data(ticks).enter().append('text').attr('x',d=>x(d)).attr('y',h-8).attr('text-anchor','middle').attr('fill',MUTED).attr('font-size',11).attr('font-family','JetBrains Mono').text(d=>d);
+    s.selectAll('line.yr').data(ticks).enter().append('line').attr('x1',d=>x(d)).attr('x2',d=>x(d)).attr('y1',12).attr('y2',h-28).attr('stroke',LINE).attr('stroke-dasharray','2 4');
+    const g = s.selectAll('g.r').data(rows).enter().append('g').style('cursor','pointer')
+      .on('mousemove',(ev,d)=>showTip(ev,`<b>${d.co}</b><span>${d.role}<br>${d.n}</span>`)).on('mouseleave',hideTip);
+    g.append('rect').attr('x',d=>x(d.a)).attr('y',d=>y(d.co)).attr('height',y.bandwidth()).attr('rx',8).attr('fill',d=>d.c).attr('opacity',.85).attr('width',0).transition().delay((d,i)=>i*120).duration(T).attr('width',d=>x(d.b)-x(d.a));
+    const th = small?80:120, cw = small?6.6:7.2;
+    g.append('text').attr('y',d=>y(d.co)+y.bandwidth()/2+4).attr('font-size',12).attr('font-weight',600)
+      .each(function(d){ const bw=x(d.b)-x(d.a), label=small?d.short:d.co, lw=label.length*cw; let xx=x(d.b)+8, anchor='start', fill=INK2;
+        if (bw>th){ xx=x(d.a)+10; fill='#07101a'; } else if (xx+lw > w-6){ xx=x(d.a)-8; anchor='end'; }
+        d3.select(this).attr('x',xx).attr('text-anchor',anchor).attr('fill',fill).text(label); })
+      .attr('opacity',0).transition().delay((d,i)=>i*120+T*.6).attr('opacity',1);
+    document.getElementById('tlLegend').innerHTML = rows.map(r=>`<span><i style="background:${r.c}"></i>${r.co}: ${r.role}</span>`).join('');
+  }
+  drawTimeline();
+
+  /* ---------- stack force graph ---------- */
+  let stackSim=null;
+  function drawStack(){
+    const el = document.getElementById('vizStack'); if(stackSim) stackSim.stop(); el.innerHTML=''; const w = el.clientWidth||1000, h=small?420:400;
+    const s = d3.select(el).append('svg').attr('viewBox',`0 0 ${w} ${h}`).attr('width','100%').attr('height',h).style('touch-action','none');
+    const groups={warehouse:{c:TEAL,n:'Warehouse & modeling'},orch:{c:VIOLET,n:'Ingestion & orchestration'},bi:{c:AMBER,n:'BI & semantic layer'},gtm:{c:ROSE,n:'GTM systems'},ai:{c:'#7dd3fc',n:'AI tooling'}};
+    const k = small?.75:1;
+    const nodes=[
+      {id:'Snowflake',g:'warehouse',r:22},{id:'dbt',g:'warehouse',r:20},{id:'SQL',g:'warehouse',r:14},{id:'Python',g:'warehouse',r:14},
+      {id:'Airflow',g:'orch',r:14},{id:'Airbyte',g:'orch',r:14},{id:'Fivetran',g:'orch',r:11},{id:'Terraform',g:'orch',r:11},{id:'AWS',g:'orch',r:10},{id:'GitHub',g:'orch',r:10},
+      {id:'Looker / LookML',g:'bi',r:18},{id:'Cortex semantic views',g:'bi',r:14},{id:'HTML reports',g:'bi',r:10},
+      {id:'Salesforce',g:'gtm',r:16},{id:'Marketo',g:'gtm',r:10},{id:'HubSpot',g:'gtm',r:9},{id:'Gong',g:'gtm',r:10},{id:'Common Room',g:'gtm',r:9},{id:'Outreach',g:'gtm',r:9},{id:'Gainsight',g:'gtm',r:9},{id:'Braze',g:'gtm',r:8},{id:'ZoomInfo',g:'gtm',r:8},{id:'Google Analytics',g:'gtm',r:8},{id:'FullStory',g:'gtm',r:8},
+      {id:'Claude',g:'ai',r:13},{id:'Cursor',g:'ai',r:11},{id:'RAG knowledge base',g:'ai',r:10},{id:'Agent skills',g:'ai',r:9},{id:'MCP servers',g:'ai',r:9},{id:'Google Sheets',g:'bi',r:9}
+    ].map(n=>({...n, r:n.r*k, lw:n.id.length*(small?5.6:6.4)}));
+    const L=(a,b)=>({source:a,target:b});
+    const links=[L('Salesforce','Airbyte'),L('Marketo','Fivetran'),L('HubSpot','Fivetran'),L('Gong','Airbyte'),L('Common Room','Airbyte'),L('Outreach','Fivetran'),L('Gainsight','Fivetran'),L('Braze','Fivetran'),L('ZoomInfo','Airbyte'),L('Google Analytics','Fivetran'),L('FullStory','Fivetran'),
+      L('Airbyte','Snowflake'),L('Fivetran','Snowflake'),L('Terraform','Airbyte'),L('AWS','Airflow'),L('Airflow','dbt'),L('GitHub','dbt'),L('dbt','Snowflake'),L('SQL','dbt'),L('Python','dbt'),
+      L('Snowflake','Looker / LookML'),L('Snowflake','Cortex semantic views'),L('dbt','Cortex semantic views'),L('Looker / LookML','HTML reports'),
+      L('Cortex semantic views','Claude'),L('RAG knowledge base','Claude'),L('Claude','Agent skills'),L('Cursor','dbt'),L('Claude','dbt'),L('Agent skills','Salesforce'),L('MCP servers','Claude'),L('MCP servers','Snowflake'),L('Google Sheets','Looker / LookML')];
+    const sim = stackSim = d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).distance(small?56:84).strength(.5)).force('charge',d3.forceManyBody().strength(small?-120:-260)).force('center',d3.forceCenter(w/2,h/2)).force('collide',d3.forceCollide(d=>small?Math.max(d.r+14,d.lw/2+4):d.r+20)).force('x',d3.forceX(d=>({warehouse:w*.5,orch:w*.3,bi:w*.72,gtm:w*.15,ai:w*.86})[d.g]).strength(.12)).force('y',d3.forceY(h/2).strength(.05));
+    const link = s.append('g').selectAll('line').data(links).enter().append('line').attr('stroke',LINE).attr('stroke-width',1.2);
+    const node = s.append('g').selectAll('g').data(nodes).enter().append('g').style('cursor','grab')
+      .call(d3.drag().on('start',(ev,d)=>{ if(!ev.active) sim.alphaTarget(.3).restart(); d.fx=d.x; d.fy=d.y; }).on('drag',(ev,d)=>{ d.fx=ev.x; d.fy=ev.y; }).on('end',(ev,d)=>{ if(!ev.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }))
+      .on('mouseenter',(ev,d)=>{ node.attr('opacity',n=>n.g===d.g?1:.25); link.attr('stroke',l=>(l.source.g===d.g||l.target.g===d.g)?groups[d.g].c:LINE).attr('stroke-opacity',l=>(l.source.g===d.g||l.target.g===d.g)?.8:.3); })
+      .on('mouseleave',()=>{ node.attr('opacity',1); link.attr('stroke',LINE).attr('stroke-opacity',1); });
+    node.append('circle').attr('r',d=>d.r).attr('fill',d=>groups[d.g].c).attr('fill-opacity',.18).attr('stroke',d=>groups[d.g].c).attr('stroke-width',1.5);
+    node.append('text').attr('text-anchor','middle').attr('y',d=>d.r+12).attr('fill',INK2).attr('font-size',small?9.5:11).text(d=>d.id);
+    sim.on('tick',()=>{ nodes.forEach(d=>{ const m=Math.max(d.r+12,d.lw/2+6); d.x=Math.max(m,Math.min(w-m,d.x)); d.y=Math.max(d.r+10,Math.min(h-d.r-22,d.y)); }); link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y); node.attr('transform',d=>`translate(${d.x},${d.y})`); });
+    document.getElementById('stackLegend').innerHTML = Object.values(groups).map(g=>`<span><i style="background:${g.c}"></i>${g.n}</span>`).join('');
+  }
+  drawStack();
+  /* ---------- contact links (assembled at runtime so the address is not in the page source) ---------- */
+  document.querySelectorAll('.js-mail').forEach(a=>{ const addr=a.dataset.u+'@'+a.dataset.d; a.href='mailto:'+addr; if(a.dataset.show) a.textContent=addr; });
+
+  /* ---------- redraw on real width changes (iframe resize, rotation, preview panes) ---------- */
+  let lastW = window.innerWidth, rt;
+  function redrawAll(){
+    small = window.innerWidth < 720;
+    Object.entries(draws).forEach(([id,fn])=>{ const card=document.getElementById(id).closest('.card'); if(card.classList.contains('in')) window[fn](); });
+    const loop=document.getElementById('vizLoop'); if(loop.dataset.done){ delete loop.dataset.done; loop.innerHTML=''; drawLoop(); }
+    drawWheel(); drawTimeline(); drawStack();
+  }
+  const onResize=()=>{ clearTimeout(rt); rt=setTimeout(()=>{ if(Math.abs(window.innerWidth-lastW)>60){ lastW=window.innerWidth; redrawAll(); } },250); };
+  window.addEventListener('resize', onResize);
+  if (window.ResizeObserver) new ResizeObserver(onResize).observe(document.body);
+})();
+</script>
+</body>
+</html>
